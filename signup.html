@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up - DARK ZONE</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Create Your Account</h1>
+    <form onsubmit="return handleSignup(event)">
+      <input type="text" id="username" placeholder="Username" required /><br />
+      <input type="email" id="email" placeholder="Email" required /><br />
+      <input type="password" id="password" placeholder="Password" required /><br />
+      <button class="btn" type="submit">Create Account</button>
+    </form>
+    <p id="message" style="margin-top:20px;"></p>
+    <br />
+    <a href="index.html" class="btn">Back to Home</a>
+  </div>
+  <footer>© 2009 🇺🇸 GOVERNMENT OF USA 🇨🇳</footer>
+  <script>
+    function handleSignup(event) {
+      event.preventDefault();
+      const username = document.getElementById('username').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      if (username && email && password) {
+        document.getElementById('message').textContent = "✅ 账户创建成功，正在跳转...";
+        document.getElementById('message').style.color = '#00ff99';
+        setTimeout(() => {
+          window.location.href = "cards.html";
+        }, 2000);
+      } else {
+        document.getElementById('message').textContent = "⚠️ 所有字段都是必填项。";
+        document.getElementById('message').style.color = 'red';
+      }
+    }
+  </script>
+</body>
+</html>
